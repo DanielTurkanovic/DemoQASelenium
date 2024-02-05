@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,15 +39,14 @@ namespace Utils.Extent
         /// <returns></returns>
         private ExtentReports StartReporting()
         {
-            //var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var path = @"C:\Users\Microsoft\source\repos\DemoQASelenium1\Tests\Results";
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             if (extentReports == null)
             {
-                Directory.CreateDirectory(path);
+                Directory.CreateDirectory(basePath);
 
                 extentReports = new ExtentReports();
-                var htmlReporter = new ExtentSparkReporter(Path.Combine(path, "report.html"));
+                var htmlReporter = new ExtentSparkReporter(Path.Combine(basePath, "report.html"));
 
                 extentReports.AttachReporter(htmlReporter);
             }
