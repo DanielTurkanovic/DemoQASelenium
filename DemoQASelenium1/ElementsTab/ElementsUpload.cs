@@ -2,14 +2,16 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1
 {
@@ -57,8 +59,9 @@ namespace DemoQASelenium1
         {
             ExtentReporting.Instance.LogInfo("Click on Choose File");
 
-            string filePath = @"C:\Users\Microsoft\Desktop\wallpapers\5506088.jpg"; 
-            ChooseFile.SendKeys(filePath);
+            var imageFileName = "5506088.jpg";
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imageFileName);
+            ChooseFile.SendKeys(imagePath);
 
             return this;
         }

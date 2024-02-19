@@ -2,6 +2,7 @@
 using Microsoft.Graph.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,8 +11,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1.BookStoreApplicationTab
 {
@@ -26,9 +27,10 @@ namespace DemoQASelenium1.BookStoreApplicationTab
         IWebElement UserNameInput => driver.FindElement(By.Id("userName"));
         IWebElement PasswordInput => driver.FindElement(By.Id("password"));
         IWebElement LoginButtonLoginTab => driver.FindElement(By.Id("login"));
+        IWebElement SearchBoxField => driver.FindElement(By.Id("searchBox"));
         IWebElement ChooseBook => driver.FindElement(By.XPath("//a[contains(text(), 'Learning JavaScript Design Patterns')]"));
         IWebElement AddToYourCollectionButton => driver.FindElement(By.XPath("//button[contains(text(), 'Add To Your Collection')]"));
-        IWebElement BackToBookStoreButton => driver.FindElement(By.XPath("//button[contains(text(), 'Back To Book Store')]"));
+        //IWebElement BackToBookStoreButton => driver.FindElement(By.XPath("//button[contains(text(), 'Back To Book Store')]"));
         IWebElement ProfileSidebarMenuTab => driver.FindElement(By.XPath("//span[contains(text(), 'Profile')]"));
         IWebElement LoginOnProfile => driver.FindElement(By.XPath("//a[contains(text(), 'login')]"));
         IWebElement DeletingBookFromProfile => driver.FindElement(By.Id("delete-record-undefined"));
@@ -58,6 +60,7 @@ namespace DemoQASelenium1.BookStoreApplicationTab
         {
             ExtentReporting.Instance.LogInfo("Fill out user name and password field");
 
+            commonTools.ScrollWindow(500);
             LoginButtonBookStoreTab.Click();
             UserNameInput.SendKeys(userName);
             PasswordInput.SendKeys(password);
@@ -69,18 +72,23 @@ namespace DemoQASelenium1.BookStoreApplicationTab
 
         public BookStoreAndProfile BookChoose()
         {
-            ExtentReporting.Instance.LogInfo("Adding book to colection");
+            ExtentReporting.Instance.LogInfo("Adding book to collection");
+            
+            SearchBoxField.SendKeys("Learning");
 
-            Thread.Sleep(3000);
-            commonTools.ScrollWindow(800);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            wait.Until(ExpectedConditions.ElementToBeClickable(ChooseBook));
             ChooseBook.Click();
 
             commonTools.ScrollWindow(800);
+
+            wait.Until(ExpectedConditions.ElementToBeClickable(AddToYourCollectionButton));
             AddToYourCollectionButton.Click();
-            Thread.Sleep(3000);
+
+            wait.Until(ExpectedConditions.AlertIsPresent());
             IAlert alert = driver.SwitchTo().Alert();
             alert.Accept();
-            BackToBookStoreButton.Click();
 
             return this;
         }
@@ -107,13 +115,14 @@ namespace DemoQASelenium1.BookStoreApplicationTab
         public string BookIsAlreadyChosen()
         {
             ExtentReporting.Instance.LogInfo("Book is already chosen");
-
-            commonTools.ScrollWindow(800);
+         
+            SearchBoxField.SendKeys("Learning");
             ChooseBook.Click();
 
             commonTools.ScrollWindow(800);
             AddToYourCollectionButton.Click();
-            string alertText = commonTools.WaitForAlertText(driver, TimeSpan.FromSeconds(10));
+          
+            string alertText = commonTools.WaitForAlertText(driver, TimeSpan.FromSeconds(5));
             return alertText;
         }
 

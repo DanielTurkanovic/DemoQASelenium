@@ -9,8 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1.InteractionsTab
 {

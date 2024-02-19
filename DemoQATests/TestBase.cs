@@ -14,8 +14,8 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 
 namespace DemoQATests
@@ -34,7 +34,7 @@ namespace DemoQATests
             PracticeForm,
             BrowserWindows,
             Alerts,
-            Widgets,
+            Accordian,
             AutoComplete,
             ProgressBar,
             ToolTips,
@@ -112,9 +112,9 @@ namespace DemoQATests
             {
                 CurrentFormType = FormType.Alerts;
             }
-            else if (testClassName.Equals("DemoQATests.WidgetsTests.WidgetsTests"))
+            else if (testClassName.Equals("DemoQATests.WidgetsTests.AccordianTest"))
             {
-                CurrentFormType = FormType.Widgets;
+                CurrentFormType = FormType.Accordian;
             }
             else if (testClassName.Equals("DemoQATests.WidgetsTests.AutoCompleteTest"))
             {
@@ -193,8 +193,8 @@ namespace DemoQATests
                 case FormType.Alerts:
                     WebForm = new Alerts(Driver);
                     break;
-                case FormType.Widgets:
-                    WebForm = new Widgets(Driver);
+                case FormType.Accordian:
+                    WebForm = new Accordian(Driver);
                     break;
                 case FormType.AutoComplete:
                     WebForm = new AutoComplete(Driver);
@@ -255,6 +255,7 @@ namespace DemoQATests
 
             //extent report
             ExtentReporting.Instance.LogScreenshot("Ending test", Browser.GetScreenshot());
+            ExtentReporting.Instance.LogScreenshot("Save screenshot", Browser.SaveScreenshot());
         }
     }
 }

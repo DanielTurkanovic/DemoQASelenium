@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.Extent;
+using Utilities.Extent;
 
 namespace DemoQATests.WidgetsTests 
 {
     public class ToolTipsTest :TestBase
     {
         [Test]
-        public void ProgressBar()
+        public void ToolTip()
         {
             ExtentReporting.Instance.LogInfo("Starting test - Tool Tips");
 

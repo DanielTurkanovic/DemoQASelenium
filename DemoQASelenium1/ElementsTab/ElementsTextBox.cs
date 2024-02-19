@@ -3,8 +3,8 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
 using System.Threading;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium
 {

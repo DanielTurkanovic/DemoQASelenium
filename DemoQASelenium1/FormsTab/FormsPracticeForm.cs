@@ -1,17 +1,10 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V117.Performance;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Xml.Linq;
-using Utils.Common;
-using Utils.Extent;
-using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+using System.Reflection;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1.FormsTab
 {
@@ -151,8 +144,9 @@ namespace DemoQASelenium1.FormsTab
         {
             ExtentReporting.Instance.LogInfo("Click on Select picture");
 
-            string filePath = @"C:\Users\Microsoft\Desktop\wallpapers\5506088.jpg";
-            SelectPicture.SendKeys(filePath);
+            var imageFileName = "5506088.jpg";
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imageFileName);
+            SelectPicture.SendKeys(imagePath);
 
             return this;
         }

@@ -2,6 +2,7 @@
 using OpenQA.Selenium.DevTools.V117.Performance;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1.Widgets
 {
@@ -22,8 +23,8 @@ namespace DemoQASelenium1.Widgets
         // locators
         IWebElement WidgetsClickOn => driver.FindElement(By.XPath("//h5[contains(text(), 'Widgets')]"));
         IWebElement AutoCompleteClick => driver.FindElement(By.XPath("//span[contains(text(), 'Auto Complete')]"));
-        IWebElement MultipleColorNames => driver.FindElement(By.Id("autoCompleteMultipleContainer"));
-
+        IWebElement MultipleColorNames => driver.FindElement(By.XPath("(//div[@class='auto-complete__input'])[1]"));
+        IWebElement MultipleColorText => driver.FindElement(By.Id("autoCompleteMultipleInput"));
         // constructor
         public AutoComplete(IWebDriver driver)
         {
@@ -60,11 +61,16 @@ namespace DemoQASelenium1.Widgets
             Actions actions = new Actions(driver);
             actions.MoveToElement(MultipleColorNames).Perform();
 
-            MultipleColorNames.SendKeys("text");
-            MultipleColorNames.SendKeys(Keys.Down);
-            MultipleColorNames.SendKeys(Keys.Tab);
-            MultipleColorNames.SendKeys("text");
-            MultipleColorNames.SendKeys(Keys.Tab);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementToBeClickable(MultipleColorNames));
+
+            MultipleColorNames.Click();
+            MultipleColorText.SendKeys(text);
+            MultipleColorText.SendKeys(Keys.Down);
+            MultipleColorText.SendKeys(Keys.Tab);
+            MultipleColorText.Click();
+            MultipleColorText.SendKeys(text);
+            MultipleColorText.SendKeys(Keys.Tab);
 
             return this;
         }

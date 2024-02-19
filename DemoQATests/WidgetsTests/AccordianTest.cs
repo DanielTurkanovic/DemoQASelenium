@@ -6,18 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.Extent;
+using Utilities.Extent;
 
 namespace DemoQATests.WidgetsTests
 {
-    public class WidgetsTests : TestBase
+    public class AccordianTest : TestBase
     {
         [Test]
-        public void AccordianTest()
+        public void Widget()
         {
             ExtentReporting.Instance.LogInfo("Starting test - Click on Why do we use it from Accordian tab bar");
 
-            var specificForm = (Widgets)WebForm;
+            var specificForm = (Accordian)WebForm;
                 specificForm
                 .AlertsSideBarTabWidget()
                 .ClickOnAccordian()

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1.Widgets
 {
-    public class Widgets
+    public class Accordian
     {
         IWebDriver driver;
         CommonTools commonTools;
@@ -22,14 +22,14 @@ namespace DemoQASelenium1.Widgets
 
 
         // constructor
-        public Widgets(IWebDriver driver)
+        public Accordian(IWebDriver driver)
         {
             this.driver = driver;
             commonTools = new CommonTools(driver);
         }
 
         // method
-        public Widgets AlertsSideBarTabWidget()
+        public Accordian AlertsSideBarTabWidget()
         {
             ExtentReporting.Instance.LogInfo("Click on Widgets");
 
@@ -39,7 +39,7 @@ namespace DemoQASelenium1.Widgets
             return this;
         }
 
-        public Widgets ClickOnAccordian()
+        public Accordian ClickOnAccordian()
         {
             ExtentReporting.Instance.LogInfo("Click on Accordian from side bar menu");
 
@@ -49,7 +49,7 @@ namespace DemoQASelenium1.Widgets
             return this;
         }
 
-        public Widgets ClickOnWhyDoWheUseIt()
+        public Accordian ClickOnWhyDoWheUseIt()
         {
             ExtentReporting.Instance.LogInfo("Click on Why Do We Use It in the Accordian Tab");
 

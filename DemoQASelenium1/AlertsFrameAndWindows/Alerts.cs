@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Utils.Common;
-using Utils.Extent;
+using Utilities.Common;
+using Utilities.Extent;
 
 namespace DemoQASelenium1.AlertsFrameAndWindows
 {
@@ -55,7 +55,7 @@ namespace DemoQASelenium1.AlertsFrameAndWindows
             ExtentReporting.Instance.LogInfo("Click on Alerts from side bar menu and get Alert text");
 
             ClickButtonToSeeAlert.Click();
-            string alertText = commonTools.WaitForAlertText(driver, TimeSpan.FromSeconds(10));
+            string alertText = commonTools.WaitForAlertText(driver, TimeSpan.FromSeconds(5));
             return alertText;
         }
 

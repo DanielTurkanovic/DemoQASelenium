@@ -1,10 +1,11 @@
 ﻿using DemoQASelenium1.Widgets;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.Extent;
+using Utilities.Extent;
 
 namespace DemoQATests.WidgetsTests
 {
@@ -21,6 +22,15 @@ namespace DemoQATests.WidgetsTests
                 .AlertsSideBarTabWidget()
                 .ClickOnAutoComplete()
                 .TypeMultipleColorNames(color);
+
+            var blueElement = Driver.FindElement(By.XPath("//div[contains(text(), 'Blue')]"));
+            var blackElement = Driver.FindElement(By.XPath("//div[contains(text(), 'Black')]"));
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(blueElement.Text, Is.EqualTo("Blue"));
+                Assert.That(blackElement.Text, Is.EqualTo("Black"));
+            });
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.Common;
-using Utils.Extent;
-
+using Utilities.Common;
+using Utilities.Extent;
+    
 namespace DemoQASelenium1
 {
     public class ElementsLinks
