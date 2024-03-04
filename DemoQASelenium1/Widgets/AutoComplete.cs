@@ -1,15 +1,8 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V117.Performance;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using Utilities.Common;
 using Utilities.Extent;
 

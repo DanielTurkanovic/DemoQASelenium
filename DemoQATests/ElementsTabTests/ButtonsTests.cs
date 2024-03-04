@@ -1,12 +1,5 @@
-﻿using DemoQASelenium;
-using DemoQASelenium1;
+﻿using DemoQASelenium1;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Extent;
 
 namespace DemoQATests

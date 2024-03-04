@@ -1,16 +1,7 @@
-﻿using Microsoft.Graph;
-using Microsoft.Graph.Models;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Utilities.Common;
 using Utilities.Extent;
 
@@ -30,7 +21,6 @@ namespace DemoQASelenium1.BookStoreApplicationTab
         IWebElement SearchBoxField => driver.FindElement(By.Id("searchBox"));
         IWebElement ChooseBook => driver.FindElement(By.XPath("//a[contains(text(), 'Learning JavaScript Design Patterns')]"));
         IWebElement AddToYourCollectionButton => driver.FindElement(By.XPath("//button[contains(text(), 'Add To Your Collection')]"));
-        //IWebElement BackToBookStoreButton => driver.FindElement(By.XPath("//button[contains(text(), 'Back To Book Store')]"));
         IWebElement ProfileSidebarMenuTab => driver.FindElement(By.XPath("//span[contains(text(), 'Profile')]"));
         IWebElement LoginOnProfile => driver.FindElement(By.XPath("//a[contains(text(), 'login')]"));
         IWebElement DeletingBookFromProfile => driver.FindElement(By.Id("delete-record-undefined"));

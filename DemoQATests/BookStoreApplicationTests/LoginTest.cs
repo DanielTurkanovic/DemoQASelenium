@@ -1,11 +1,5 @@
-﻿using DemoQASelenium;
-using DemoQASelenium1.BookStoreApplicationTab;
+﻿using DemoQASelenium1.BookStoreApplicationTab;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Extent;
 
 namespace DemoQATests.BookStoreApplicationTests

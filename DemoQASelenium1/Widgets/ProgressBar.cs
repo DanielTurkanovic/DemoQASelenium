@@ -1,12 +1,6 @@
-﻿using DemoQASelenium1.Widgets;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Utilities.Common;
 using Utilities.Extent;
 

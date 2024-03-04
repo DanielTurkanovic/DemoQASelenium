@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.IO;
-using System.Reflection;
 
 namespace Utilities.Common
 {

@@ -1,14 +1,6 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using Utilities.Common;
 using Utilities.Extent;
 

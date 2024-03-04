@@ -2,7 +2,6 @@
 using OpenQA.Selenium.Interactions;
 using System;
 using System.IO;
-using System.Reflection;
 using Utilities.Common;
 using Utilities.Extent;
 

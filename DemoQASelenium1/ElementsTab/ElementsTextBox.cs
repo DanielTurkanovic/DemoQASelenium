@@ -1,8 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using System;
-using System.Threading;
 using Utilities.Common;
 using Utilities.Extent;
 
